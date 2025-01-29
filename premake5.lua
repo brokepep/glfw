@@ -1,5 +1,6 @@
 project "GLFW"
 	kind "StaticLib"
+		staticruntime "on" --staticly linking the runtime libraries
 	language "C"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -32,7 +33,6 @@ project "GLFW"
 
 	filter "system:windows"
 		systemversion "latest"
-		staticruntime "On" --staticly linking the runtime libraries
 
 		files
 		{
@@ -56,7 +56,7 @@ project "GLFW"
 			"_CRT_SECURE_NO_WARNINGS"
 		}
 
-	filter "configurations:Debug"
+		filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
 
